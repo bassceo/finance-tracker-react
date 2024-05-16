@@ -1,0 +1,87 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    /*измененонаspace-betweenдляравномерногораспределениямеждуэлементами*/padding: 20px;
+    color: #AFAFAF;
+    max-width: 1300px;
+    /*padding-right: 50px;
+    *//*padding-left: 50px;
+    */border: 1px solid hsl(0, 0%, 76%);
+    border-radius: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0 auto;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.name h2 {
+    margin: 0; /* убираем отступы вокруг заголовка */
+    color: black;
+    text-decoration: none; /* убираем подчеркивание у ссылки */
+}
+
+
+.menu ul {
+    display: flex;
+    gap: 30px;
+    list-style-type: none; /* убираем маркеры списка */
+    padding: 0; /* убираем отступы вокруг списка */
+}
+
+.menu li {
+    /* немного стилизуем пункты меню */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none; /* убираем подчеркивание у ссылок */
+    color: #AFAFAF;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    /* стили при наведении */
+    text-decoration: under
+}
+
+.rightMenu{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.activeMenu{
+    background-color: #E3F6FE;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+   
+}
+
+.activeMenu svg{
+    filter: brightness(0);
+    -webkit-filter: brightness(0);
+}
+
+.activeMenu a{
+    color: black;
+}

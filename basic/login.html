@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Умный бюджет</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+
+            color: #fff;
+        }
+        .navbar {
+            background-color: #000000;
+            border-radius: 10px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-brand {
+            color: #fff;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .table {
+            color: #fff;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .modal-content {
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: hsl(270, 69%, 59%);
+            border-color: hwb(270 20% 42%);
+            border-radius: 5px;
+        }
+        .btn-primary:active {
+            background-color: hsl(270, 69%, 59%);
+            border-color: hwb(270 20% 42%);
+        }
+        .btn-primary:hover {
+            background-color: hsl(270, 69%, 59%);
+            border-color: hwb(270 20% 42%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Умный бюджет</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="accounts.html">Счета</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transactions.html">Транзакции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Отчеты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Настройки</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Форма входа или регистрации -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Вход</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Регистрация</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <!-- Вкладка для входа -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <h5 class="card-title">Войти</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="loginUsername" class="form-label">Логин</label>
+                                        <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Введите ваш логин">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="loginPassword" class="form-label">Пароль</label>
+                                        <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Введите ваш пароль">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Войти</button>
+                                </form>
+                            </div>
+                            <!-- Вкладка для регистрации -->
+                            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <h5 class="card-title">Регистрация</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="registerUsername" class="form-label">Логин</label>
+                                        <input type="text" class="form-control" id="registerUsername" name="registerUsername" placeholder="Введите ваш логин">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="Введите ваш email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label">Пароль</label>
+                                        <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Введите ваш пароль">
+                                        <small id="passwordHelp" class="form-text text-muted">Пароль должен содержать не менее 8 символов, включая буквы, цифры и специальные символы.</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+    <!-- Bootstrap и jQuery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-rNveXvRNwobet3jtbrzl2H9HRSCs1HjZuVJhPlxK4dZlwuJvRZ1yCe9J+sK+Lj7" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
