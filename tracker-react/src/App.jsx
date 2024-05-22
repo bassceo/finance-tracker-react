@@ -3,12 +3,13 @@ import Accounts from "./components/Accounts";
 import {Routes, Route} from "react-router-dom";
 import './index.css';
 import Transactions from "./components/Transactions";
+import HomePage from "./components/HomePage";
 
 const App = () => {
   return < >
     <NavBar/>
     <Routes>
-      <Route path="/" component={<></>} />
+        <Route path="/" element={<HomePage/>} />
       <Route path="/accounts" element={<Accounts/>}/>
       <Route path="/transactions" element={<Transactions/>}/>
 

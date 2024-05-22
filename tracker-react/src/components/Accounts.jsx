@@ -1,75 +1,37 @@
-import { Button, Container } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
-
+import { Container, Button } from '@mui/material';
+import { useState } from 'react';
+import AccountDialog from './utils/AccountDialog';
+import TransferDialog from './utils/TransferDialog';
+import AccountTable from './utils/AccountTable';
+import AccountPieChart from './utils/AccountPieChart';
+// import { getAccountsData } from '../features/dataApi/AccountsData';
 import './styles/Accounts.css';
-import { PieChart } from '@mui/x-charts/PieChart';
+import { useSelector } from 'react-redux';
 
-import {getAccountsData} from '../features/dataApi/AccountsData'
 
 const Accounts = () => {
-    const accountsData = getAccountsData();
 
-    const columns = [
-        { field: 'id', headerName: '#', width: 100 },
-        { field: 'name', headerName: 'Название счета', width: 250 },
-        { field: 'type', headerName: 'Тип счета', width: 150 },
-        { field: 'balance', headerName: 'Баланс', width: 150, type: 'number', renderCell: (params) => (
-            <>{ params.row.balance } ₽ </> )    },
-        {
-            field: 'transactions',
-            headerName: 'Транзакции счёта',
-            width: 150,
-            renderCell: (params) => (
-                <a className="button link_to" href={`/transactions?account_id=${params.row.id}`}>Перейти</a>
-            ),
-        },
-    ];
-
-    const rows = accountsData.map(account => ({
-        id: account.id,
-        name: account.name,
-        type: account.type,
-        balance: account.balance
-    }));
+    const accountsData = useSelector(state => state.accounts);
+    const [modalActive, setModalActive] = useState(false);
+    const [modal2Active, setModal2Active] = useState(false);
 
     return (
         <Container className='container' maxWidth={false}>
-            <Container className="pieChart"><PieChart 
-                series={[
-                    {
-                    data: accountsData.map((account) => {
-                        return {...account, value: account.balance, label: account.name};
-                    }),
-                    },
-                ]}
-                // width={600}  
-                height={500}
-
-            /></Container>
+            <AccountPieChart accounts={accountsData} />
             <div className="head">
                 <h2 className="heading">Счета</h2>
                 <div className="buttons">
-                <Button variant="contained" className="button" onClick={() => console.log('Добавить счет')}>
-                    Добавить счет
-                </Button>
-                <Button variant="contained" className="button" onClick={() => console.log('Добавить счет')}>
-                    Объеденить счета
-                </Button>
-                <Button variant="contained" className="button" onClick={() => console.log('Добавить счет')}>
-                    Перевести средства между счетами
-                </Button>
+                    <Button variant="contained" className="button" onClick={() => setModalActive(true)}>
+                        Добавить счет
+                    </Button>
+                    <Button variant="contained" className="button" onClick={() => setModal2Active(true)}>
+                        Перевести средства между счетами
+                    </Button>
                 </div>
             </div>
-            <div style={{ height: 400, width: '100%' }}>
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5, 10, 20]}
-                    checkboxSelection
-                    disableSelectionOnClick
-                />
-            </div>
+            <AccountTable accounts={accountsData} />
+            <AccountDialog open={modalActive} onClose={() => setModalActive(false)} onAccountAdded={() => {}} />
+            <TransferDialog open={modal2Active} onClose={() => setModal2Active(false)} onTransferMade={() => {}} />
         </Container>
     );
 };

@@ -70,4 +70,15 @@
     -o-border-radius: 30px;
 }
 
+.addForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
+.addField{
+    width: 300px;
+    color: black;
+}

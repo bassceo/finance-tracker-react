@@ -85,3 +85,37 @@
 .activeMenu a{
     color: black;
 }
+
+.accountName{
+    color: black;
+    font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+    background-color: hsl(0, 0%, 96%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.notifications{
+    background-color: #D6D7DB;
+    color: #646464;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 20px;
+    /* height: 30px; */
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
